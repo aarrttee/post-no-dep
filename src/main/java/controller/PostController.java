@@ -1,6 +1,7 @@
 package controller;
 
 import com.sun.net.httpserver.HttpExchange;
+import com.sun.net.httpserver.HttpServer;
 import model.Post;
 import server.Server;
 import service.PostService;
@@ -23,7 +24,7 @@ public class PostController implements Server.Controller {
     }
 
     @Override
-    public void registerHandlers(com.sun.net.httpserver.HttpServer server) {
+    public void registerHandlers(HttpServer server) {
         // Register the handler for all /api/posts URLs
         server.createContext(API_POSTS_PATH, this::handleRequest);
     }
